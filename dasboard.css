@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+}
+
+/* Hamburger Button */
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 999;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+  display: none;
+}
+
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-section img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #007bff;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.profile-section h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar-item i {
+  font-size: 20px;
+  color: #007bff;
+}
+
+.dashboard-container {
+  flex: 1;
+  padding: 40px 30px;
+}
+
+.dashboard-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 30px 20px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #007bff;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.card a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.card a:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive: Hide sidebar by default on small screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .dashboard-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+}
